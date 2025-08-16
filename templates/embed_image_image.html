@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Image → Image (Encode)</h2>
+<form method="POST" enctype="multipart/form-data" class="form">
+  <label class="label">Choose cover image</label>
+  <input class="input" type="file" name="cover" accept="image/*" required />
+  <label class="label">Choose secret image</label>
+  <input class="input" type="file" name="secret" accept="image/*" required />
+  <button class="btn" type="submit">Submit</button>
+</form>
+{% if download %}
+  <a class="btn" href="{{ download }}">⬇ Download Output</a>
+{% endif %}
+{% endblock %}

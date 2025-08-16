@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+  <h1>STEGANOGRAPHY USING TEXT, IMAGE, AUDIO AND VIDEO FILES</h1>
+  <p>Send your message securely! By secretly hiding it in 🖼 🎵 🎥</p>
+</div>
+
+<div class="grid">
+  <div class="card card-yellow">
+    <div class="icon">📜</div>
+    <h3>TEXT → IMAGE</h3>
+    <div class="row-actions">
+      <a class="btn" href="{{ url_for('embed_text_image') }}">🔐 Encode</a>
+      <a class="btn outline" href="{{ url_for('extract_text_image') }}">🔓 Decode</a>
+    </div>
+  </div>
+  <div class="card card-orange">
+    <div class="icon">🖼</div>
+    <h3>IMAGE → IMAGE</h3>
+    <div class="row-actions">
+      <a class="btn" href="{{ url_for('embed_image_image') }}">🔐 Encode</a>
+      <a class="btn outline" href="{{ url_for('extract_image_image') }}">🔓 Decode</a>
+    </div>
+  </div>
+  <div class="card card-purple">
+    <div class="icon">🎵</div>
+    <h3>TEXT → AUDIO</h3>
+    <div class="row-actions">
+      <a class="btn" href="{{ url_for('embed_text_audio') }}">🔐 Encode</a>
+      <a class="btn outline" href="{{ url_for('extract_text_audio') }}">🔓 Decode</a>
+    </div>
+  </div>
+  <div class="card card-blue">
+    <div class="icon">🎥</div>
+    <h3>TEXT → VIDEO</h3>
+    <div class="row-actions">
+      <a class="btn" href="{{ url_for('embed_text_video') }}">🔐 Encode</a>
+      <a class="btn outline" href="{{ url_for('extract_text_video') }}">🔓 Decode</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

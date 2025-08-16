@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Text → Audio (Encode)</h2>
+<form method="POST" enctype="multipart/form-data" class="form">
+  <label class="label">Choose WAV (16-bit PCM)</label>
+  <input class="input" type="file" name="audio" accept="audio/wav" required />
+
+  <label class="label">Secret Message</label>
+  <textarea class="textarea" name="message" placeholder="Type your secret message..." required></textarea>
+
+  <label class="checkbox"><input type="checkbox" name="encrypt"> Use security key (encryption)</label>
+  <input class="input" type="password" name="password" placeholder="Enter security key when checked">
+
+  <button class="btn" type="submit">Submit</button>
+</form>
+
+{% if download %}
+  <a class="btn" href="{{ download }}">⬇ Download Output</a>
+{% endif %}
+
+{% if extracted %}
+  <div class="terminal"><pre>{{ extracted }}</pre></div>
+{% endif %}
+{% endblock %}

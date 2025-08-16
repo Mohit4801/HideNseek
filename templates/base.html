@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "HideNseek" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">🔒 HideNseek</div>
+    <nav class="menu">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('embed_text_image') }}">Text→Image</a>
+      <a href="{{ url_for('embed_image_image') }}">Image→Image</a>
+      <a href="{{ url_for('embed_text_audio') }}">Text→Audio</a>
+      <a href="{{ url_for('embed_text_video') }}">Text→Video</a>
+    </nav>
+  </header>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flashes">
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+ <div style="text-align: center; font-family: Arial, sans-serif; font-size: 14px; color: #888;">
+  <span><span>© 2025 HideNseek | All Rights Reserved</span>
+</span><br>
+  <span>Made with ❤️ by Mohit</span><br>
+  <span>
+  <a href="/privacy-policy">Privacy Policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="/terms-of-service">Terms of Service</a>
+</span>
+<br>
+  <span>Follow us on 
+    <a>GitHub</a> |  
+
+  </span>
+</div>
+
+  </footer>
+</body>
+</html>

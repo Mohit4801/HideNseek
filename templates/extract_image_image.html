@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Image → Image (Decode)</h2>
+<form method="POST" enctype="multipart/form-data" class="form">
+  <label class="label">Choose stego image</label>
+  <input class="input" type="file" name="image" accept="image/*" required />
+
+  <button class="btn" type="submit">Submit</button>
+</form>
+
+{% if download %}
+  <a class="btn" href="{{ download }}">⬇ Download Output</a>
+{% endif %}
+
+{% if extracted %}
+  <div class="terminal"><pre>{{ extracted }}</pre></div>
+{% endif %}
+{% endblock %}
